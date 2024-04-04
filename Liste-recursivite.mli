@@ -1,8 +1,6 @@
 let rec somme l = match l with
   | a::l' -> if l' = [] then a else a + (somme l')
-  | _ -> failwith "bin non";;
-
-BEST VERSION 
+  | _ -> failwith "bin non";; 
 
 let rec somme l = match l with
   | [] -> 0
@@ -30,12 +28,19 @@ let rec reverse l = match l with
   |a::l' -> reverse l'@[a];;
 
 let reversebis l = let rec aux bis l = match l with
-    | [] -> res
-    | x::l' -> aux x::res l'
+    | [] -> bis
+    | x::l' -> aux (x::bis) l'
   in aux [] l;;
 
 let rec nombreoccurence element liste = match liste with
   | [] -> 0
-  | a::listebis -> if a = element then 1 + nombreoccurence listebis 
-      else nombreoccurence listebis;;
+  | a::l' -> if a = element then 1 + nombreoccurence element l'
+      else nombreoccurence element l';;
+
+let rec prem elem l=match l with
+  |[]->[]
+  |a::l1->if elem = a then prem elem l1 
+      else prem (a::l1) ;;
+
+let dern l = reverse(prem(reverse l));;
  
