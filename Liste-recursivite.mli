@@ -33,4 +33,9 @@ let reversebis l = let rec aux bis l = match l with
     | [] -> res
     | x::l' -> aux x::res l'
   in aux [] l;;
+
+let rec nombreoccurence element liste = match liste with
+  | [] -> 0
+  | a::listebis -> if a = element then 1 + nombreoccurence listebis 
+      else nombreoccurence listebis;;
  
